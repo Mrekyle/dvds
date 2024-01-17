@@ -26,3 +26,41 @@ body {
 .title-row {
     padding-top: 1.5rem;
 }
+
+/* HOME PAGE  */
+
+.home-slider {
+    height: 25rem;
+    background-color: aqua;
+}
+
+.home-txt {
+    height: 13rem;
+    background-color: green;
+}
+
+.award-container {
+    background-color: blueviolet;
+    height: 10.6rem;
+}
+
+.testimonial-container {
+    height: 13rem;
+}
+
+.review-img {
+    background-color: aquamarine;
+    height: 13rem;
+}
+
+.review-txt {
+    background-color: orange;
+    height: 13rem;
+}
+
+/* FOOTER  */
+
+.footer-container{
+    background-color: rgb(123, 74, 74);
+    height: 14rem;
+}
