@@ -34,18 +34,23 @@ body {
     background-color: aqua;
 }
 
+.txt-container {
+    height: 25rem;
+}
+
 .home-txt {
     height: 13rem;
-    background-color: green;
+    background-color: blueviolet;
 }
 
 .award-container {
-    background-color: blueviolet;
+    background-color: greenyellow;
     height: 10.6rem;
 }
 
 .testimonial-container {
     height: 13rem;
+    min-width: 100%;
 }
 
 .review-img {
@@ -61,6 +66,12 @@ body {
 /* FOOTER  */
 
 .footer-container{
+    margin-top: 6rem;
     background-color: rgb(123, 74, 74);
     height: 14rem;
+}
+
+.footer-block{
+    height: 0.3rem;
+    background-color: orangered;
 }
