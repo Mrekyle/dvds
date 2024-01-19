@@ -75,3 +75,8 @@ body {
     height: 0.3rem;
     background-color: orangered;
 }
+
+.copy-container {
+    height: 1.4rem;
+    background-color: pink;
+}
