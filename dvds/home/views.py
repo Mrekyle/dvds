@@ -15,3 +15,17 @@ def index(request):
     }
 
     return render(request, template, context)
+
+
+def contact(request):
+    """
+        Renders the contact page of the application
+    """
+
+    template = 'contact.html'
+
+    context = {
+
+    }
+
+    return render(request, template, context)

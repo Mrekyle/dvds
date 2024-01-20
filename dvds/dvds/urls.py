@@ -23,6 +23,7 @@ from .views import handler404
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
+    path('lesson/', include('lessons.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'dvds.views.handler404'

@@ -22,6 +22,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     {% endblock %}
 
@@ -29,7 +30,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/6ab0a7bbf9.js" crossorigin="anonymous"></script>
-    
+        
     {% endblock %}
 
     {% block extra_js %}
@@ -43,7 +44,7 @@
         <div class="container title-container text-center">
             <div class="title-row row align-items-center">
                 <div class="col-3">
-                    LOGO HERE
+                    <a href="{% url 'home' %}" class="" rel="opener" aria-label="Send the user back to home">LOGO HERE</a>
                 </div>
                 <div class="col-6">
                     <span class="">COLCHESTER <i class="ps-2 pe-2 fa-solid fa-circle"></i></span>
@@ -52,7 +53,6 @@
                 </div>
                 <div class="col-3">
                     <i class="fa-solid fa-phone"></i> Colchester - 01206873828<br>
-                    <i class="fa-solid fa-phone"></i> Ipswich - 01206873828
                 </div>
             </div>
         </div>
@@ -64,20 +64,23 @@
               <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Services
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a class="dropdown-item" href="#">Weekly Lessons</a></li>
+                      <li><a class="dropdown-item" href="#">Automatic Lessons</a></li>
+                      <li><a class="dropdown-item" href="#">Intensive Lessons</a></li>
+                      <li><a class="dropdown-item" href="#">Refresher Lessons</a></li>
+                      <li><a class="dropdown-item" href="#">Instructor Training</a></li>
+                      <li><a class="dropdown-item" href="#">Theory Test</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="{% url 'pricing' %}">Pricing</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Meet The Team</a>
@@ -86,7 +89,7 @@
                     <a class="nav-link" href="#">Driver Portal</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{% url 'contact' %}" rel="opener">Contact</a>
                   </li>
                 </ul>
               </div>
@@ -94,11 +97,13 @@
           </nav>
           <!-- INCLUDE HERE -->
         </header>
-
-    {% block content %}
-
-    {% endblock %}
     
+    <main>
+      {% block content %}
+
+      {% endblock %}
+    </main>
+
     <div class="footer-container">
         <footer class="footer-block">
             <div class="col-lg-12">
@@ -110,7 +115,7 @@
             </div>
             <div class="col-lg-12 copy-container">
                 <div class="row text-end me-2">
-                    <p>Copywright and links </p>
+                    <p>Copy wright and links </p>
                 </div>
             </div>
         </footer>

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # CUSTOM APPS
 
     'home',
+    'lessons',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container top-container">
+        <h4 class="mb-5 text-center">Get in touch with us today to start your driving journey</h4>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <form class="" method="POST" action="">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="name" placeholder="John Smith" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="john.smith@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="number" class="form-label">Number <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="number" placeholder="12345678901" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="location" placeholder="Colchester" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="gearboxr" class="form-label">Gearbox <span class="text-danger">*</span></label>
+                            <select class="form-select" id="gearbox" aria-label="Default select example">
+                                <option selected>-</option>
+                                <option value="1">Manual</option>
+                                <option value="2">Automatic</option>
+                                <option value="3">Unsure?</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="gearboxr" class="form-label">How did you hear about us? <span class="text-danger">*</span></label>
+                            <select class="form-select" id="gearbox" aria-label="Default select example">
+                                <option selected>-</option>
+                                <option value="1">Friend or Family</option>
+                                <option value="2">Facebook</option>
+                                <option value="3">Saw Us Around</option>
+                                <option value="4">Top Rated</option>
+                                <option value="5">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-message" class="form-label">Your Message <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="contact-message" rows="5"></textarea>
+                          </div>
+                        <button type="submit" class="btn btn-primary">Send Your Message</button>
+                    </form>
+                </div>
+                <div class="col-6 text-center">
+                    <div class="contact-img mb-5">
+                        <img class="" src="" alt="">
+                    </div>
+                    <p>For more information, please feel free to contact us 
+                        using our contact form.<br> Or please feel free to give us a call. 
+                        We look forward to hearing from you soon.</p>
+                        <div class="mb-3 mt-3">
+                            <a href="" class="" rel="opener" aria-label="Opens Our Facebook"><i class="social-icon ms-2 me-2 bi bi-facebook"></i></a>
+                            <a href="" class="" rel="opener" aria-label="Opens Our Twitter"><i class="social-icon ms-2 me-2 bi bi-twitter"></i></a>
+                            <a href="" class="" rel="opener" aria-label="Opens Our Instagram"><i class="social-icon ms-2 me-2 bi bi-instagram"></i></a>
+                            <a href="" class="" rel="opener" aria-label="Opens Our Youtube"><i class="social-icon ms-2 me-2 bi bi-youtube"></i></a>
+                        </div>
+                    <p>Contact us on:</p>
+                        <p><i class="bi bi-telephone-fill"></i> 01297863762</p>
+                    <p>Email Us:</p>
+                        <p><i class="bi bi-envelope-fill"></i> Contact@dedhamvaledriving.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
