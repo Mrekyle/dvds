@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    min-height: 100vh;
+    min-height: 100%;
     padding: 0 auto;
     margin: 0 auto;
     height: calc(100vh - 90px);
@@ -30,6 +30,20 @@ body {
 
 .top-container {
     margin-top: 3.5rem;
+}
+
+/* BUTTONS */
+
+.btn-standard {
+    background: #ced4da;
+    color: black !important;
+    border: 1.5px solid black;
+}
+
+.btn-standard:hover {
+    background-color: rgb(65, 65, 65);
+    color: whitesmoke !important;
+    border: 1.5px solid #6edff6;
 }
 
 /* TOP HEADER  */
@@ -56,8 +70,27 @@ body {
 }
 
 .copy-container {
+    margin-top: 2rem;
     height: 1.4rem;
     background-color: pink;
+}
+
+.f-link {
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+ }
+
+ .f-link:hover {
+    color: #55adbe;
+ }
+ 
+.usefull-links {
+    list-style: none;
+}
+
+.usefull-txt {
+    font-size: 16px;
 }
 
 /* HOME PAGE  */
