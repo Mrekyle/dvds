@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('lesson/', include('lessons.urls')),
+    path('team/', include('team.urls')),
+    path('portal/', include('driver_portal.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'dvds.views.handler404'

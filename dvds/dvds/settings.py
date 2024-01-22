@@ -54,6 +54,8 @@ INSTALLED_APPS = [
 
     'home',
     'lessons',
+    'team',
+    'driver_portal',
 ]
 
 MIDDLEWARE = [

@@ -29,3 +29,31 @@ def contact(request):
     }
 
     return render(request, template, context)
+
+
+def privacy(request):
+    """
+        Renders the privacy policy
+    """
+
+    template = 'privacy-policy.html'
+
+    context = {
+
+    }
+
+    return render(request, template, context)
+
+
+def terms(request):
+    """
+        Renders terms and conditions
+    """
+
+    template = 'terms.html'
+
+    context = {
+
+    }
+
+    return render(request, template, context)
