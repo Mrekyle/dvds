@@ -14,7 +14,7 @@ body {
     margin: 0 auto;
     height: calc(100vh - 90px);
     font-size: 16px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 /* HELPER CLASSES  */
@@ -61,7 +61,7 @@ body {
 .footer-container{
     margin-top: 6rem;
     background-color: rgb(123, 74, 74);
-    height: 14rem;
+    height: 16.4rem;
 }
 
 .footer-block{
@@ -71,7 +71,7 @@ body {
 
 .copy-container {
     margin-top: 2rem;
-    height: 1.4rem;
+    height: 1.6rem;
     background-color: pink;
 }
 
