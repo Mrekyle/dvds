@@ -15,3 +15,17 @@ def team(request):
     }
 
     return render(request, template, context)
+
+
+def team_detail(request):
+    """
+        Renders the team detail view page
+    """
+
+    template = 'team_detail.html'
+
+    context = {
+
+    }
+
+    return render(request, template, context)

@@ -71,22 +71,22 @@
                       Services
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Weekly Lessons</a></li>
-                      <li><a class="dropdown-item" href="#">Automatic Lessons</a></li>
-                      <li><a class="dropdown-item" href="#">Intensive Lessons</a></li>
-                      <li><a class="dropdown-item" href="#">Refresher Lessons</a></li>
-                      <li><a class="dropdown-item" href="#">Instructor Training</a></li>
-                      <li><a class="dropdown-item" href="#">Theory Test</a></li>
+                      <li><a class="dropdown-item" href="{% url 'weekly' %}">Weekly Lessons</a></li>
+                      <li><a class="dropdown-item" href="{% url 'auto' %}">Automatic Lessons</a></li>
+                      <li><a class="dropdown-item" href="{% url 'intensive' %}">Intensive Lessons</a></li>
+                      <li><a class="dropdown-item" href="{% url 'refresher' %}">Refresher Lessons</a></li>
+                      <li><a class="dropdown-item" href="{% url 'instructor' %}">Instructor Training</a></li>
+                      <li><a class="dropdown-item" href="{% url 'theory_test' %}">Theory Test</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'pricing' %}">Pricing</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Meet The Team</a>
+                    <a class="nav-link" href="{% url 'team' %}">Meet The Team</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Driver Portal</a>
+                    <a class="nav-link" href="{% url 'drivers' %}">Driver Portal</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}" rel="opener">Contact</a>
