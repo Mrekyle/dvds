@@ -11,23 +11,23 @@
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="name" placeholder="John Smith" required>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="John Smith" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="john.smith@email.com" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="john.smith@email.com" required>
                         </div>
                         <div class="mb-3">
                             <label for="number" class="form-label">Number <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="number" placeholder="12345678901" required>
+                            <input type="text" class="form-control" id="number" name="number" placeholder="12345678901" required>
                         </div>
                         <div class="mb-3">
                             <label for="location" class="form-label">Location <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="location" placeholder="Colchester" required>
+                            <input type="text" class="form-control" id="location" name="location" placeholder="Colchester" required>
                         </div>
                         <div class="mb-3">
-                            <label for="gearboxr" class="form-label">Gearbox <span class="text-danger">*</span></label>
-                            <select class="form-select" id="gearbox" aria-label="Default select example">
+                            <label for="gearbox" class="form-label">Gearbox <span class="text-danger">*</span></label>
+                            <select class="form-select" id="gearbox" name="gearbox" aria-label="Select your gearbox" required>
                                 <option selected>-</option>
                                 <option value="1">Manual</option>
                                 <option value="2">Automatic</option>
@@ -35,8 +35,8 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="gearboxr" class="form-label">How did you hear about us? <span class="text-danger">*</span></label>
-                            <select class="form-select" id="gearbox" aria-label="Default select example">
+                            <label for="information" class="form-label">How did you hear about us? <span class="text-danger">*</span></label>
+                            <select class="form-select" id="information" name="information" aria-label="Select how you heard about us" required>
                                 <option selected>-</option>
                                 <option value="1">Friend or Family</option>
                                 <option value="2">Facebook</option>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="contact-message" class="form-label">Your Message <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="contact-message" rows="5"></textarea>
+                            <textarea class="form-control" id="contact-message" name="message" rows="5" required></textarea>
                           </div>
                         <button type="submit" class="btn btn-primary">Send Your Message</button>
                     </form>
