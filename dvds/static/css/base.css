@@ -44,16 +44,18 @@ body {
 
 /* BUTTONS */
 
-.btn-standard {
-    background: #ced4da;
-    color: black !important;
-    border: 1.5px solid black;
+.btn-secondary {
+    border: 1px solid rgb(32, 32, 32);
+    color: white;
+    background-color: #444544;
 }
 
-.btn-standard:hover {
-    background-color: rgb(65, 65, 65);
-    color: whitesmoke !important;
-    border: 1.5px solid #6edff6;
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus {
+    border: 1px solid black;
+    background-color: #10a4ff;
+    color: white !important;
 }
 
 .btn-base {
@@ -70,10 +72,28 @@ body {
     color: white !important;
 }
 
+.btn-intensive {
+    padding: 1.2rem;
+    font-size: 21px;
+    font-weight: bolder;
+    color: white;
+    background-color: #04416a;
+}
+
+.btn-intensive:hover,
+.btn-intensive:focus,
+.btn-intensive:active {
+    background-color: #444544;
+    color: white;
+}
+
 /* TOP HEADER  */
 
 .title-container {
     height: 6rem;
+    max-width: 100%;
+    background-color: #004c4c;
+    color: white;
 }
 
 .title-row {
@@ -186,7 +206,17 @@ body {
 }
 
 .pricing-txt {
-    height: 18rem;
+    height: 16rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-wrap: balance;
+    font-size: 18px;
+}
+
+.card-container {
+    background-color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /* TOASTS */
