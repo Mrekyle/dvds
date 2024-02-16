@@ -33,6 +33,11 @@ body {
     margin-top: 3.5rem;
 }
 
+.text-black {
+    font-size: 20px;
+    color: black !important;
+}
+
 .f-bold {
     font-weight: bold;
 }
@@ -49,6 +54,20 @@ body {
     background-color: rgb(65, 65, 65);
     color: whitesmoke !important;
     border: 1.5px solid #6edff6;
+}
+
+.btn-base {
+    border: 1px solid rgb(32, 32, 32);
+    color: white;
+    background-color: #10a4ff;
+}
+
+.btn-base:hover,
+.btn-base:active,
+.btn-base:focus {
+    border: 1px solid black;
+    background-color: #444544;
+    color: white !important;
 }
 
 /* TOP HEADER  */
@@ -169,3 +188,71 @@ body {
 .pricing-txt {
     height: 18rem;
 }
+
+/* TOASTS */
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999999999;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.message-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* MEDIA QUERY */

@@ -7,49 +7,32 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-6">
-                    <form class="" method="POST" action="">
+                    <form method="POST" class="form" action="" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="John Smith" required>
+                        <fieldset class="">
+                            <label class="fieldset-label f-bold text-black mb-2">Your Details:</label>
+                            {{ form.name | as_crispy_field }}
+                            {{ form.email | as_crispy_field }}
+                            {{ form.number | as_crispy_field }}
+                            {{ form.location | as_crispy_field }}
+                            <label class="fieldset-label small text-muted mb-2">How did you find out about us?</label>
+                            {{ form.information | as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="">
+                            <label class="fieldset-label f-bold text-black mb-2">Preferences:</label><br>
+                            <label class="fieldset-label small text-muted mb-2">What transmission do you want to learn?</label>
+                            {{ form.gearbox | as_crispy_field }}
+                            {{ form.message | as_crispy_field }}
+                        </fieldset>
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-base">Send Your Message  <i class="ps-1 fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="col-6">
+                                <input class="form-check-input" name="send-copy" id="sendCopy" type="checkbox">
+                                <label for="sendCopy" class="form-check-label ps-2">Send me a copy</label> 
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="john.smith@email.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="number" class="form-label">Number <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="number" name="number" placeholder="12345678901" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="location" class="form-label">Location <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="location" name="location" placeholder="Colchester" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="gearbox" class="form-label">Gearbox <span class="text-danger">*</span></label>
-                            <select class="form-select" id="gearbox" name="gearbox" aria-label="Select your gearbox" required>
-                                <option selected>-</option>
-                                <option value="1">Manual</option>
-                                <option value="2">Automatic</option>
-                                <option value="3">Unsure?</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="information" class="form-label">How did you hear about us? <span class="text-danger">*</span></label>
-                            <select class="form-select" id="information" name="information" aria-label="Select how you heard about us" required>
-                                <option selected>-</option>
-                                <option value="1">Friend or Family</option>
-                                <option value="2">Facebook</option>
-                                <option value="3">Saw Us Around</option>
-                                <option value="4">Top Rated</option>
-                                <option value="5">Other</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="contact-message" class="form-label">Your Message <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="contact-message" name="message" rows="5" required></textarea>
-                          </div>
-                        <button type="submit" class="btn btn-primary">Send Your Message</button>
                     </form>
                 </div>
                 <div class="col-6 text-center">

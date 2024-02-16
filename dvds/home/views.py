@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect
 from . forms import SupportForm
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -31,8 +31,11 @@ def contact(request):
 
     if request.method == 'POST':
         form = SupportForm(request.POST)
-        if form.is_valid():
-            contact = form.save()
+        if request.method == 'POST':
+            if form.is_valid():
+                support_form = form.save()
+                messages.success(
+                    request, f'Success! Message sent successfully, We will be in touch as soon as possible.')
 
             """
                 Contact email handling
@@ -45,7 +48,40 @@ def contact(request):
             gearbox = request.POST.get('gearbox')
             information = request.POST.get('information')
             message = request.POST.get('message')
+            send_copy = request.POST.get('send-copy')
             subject = 'New contact form request'
+            subject_copy = 'Your message to Dedham Vale Driving School'
+
+            if send_copy == 'on':
+                """
+                    Send a copy to the user
+                """
+
+                message_copy = f""""
+
+                    {name} you have sent an email request to Dedham Vale Driving School.
+                    They will be in touch as soon as possible.
+                    --------------------------------------------
+
+                    Your message contains:
+
+                    {message}
+
+                    Email - {email}
+                    Number - {number}
+                    Your Location - {location}
+                    Gearbox Preference - {gearbox}
+                    How you hear about Dvd's - {information}
+                    
+                    --------------------------------------------
+                """
+
+                send_mail(
+                    subject=subject_copy,
+                    message=message_copy,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=[email]
+                )
 
             contact_message = f"""
                 You have received a new message from {name}
@@ -75,14 +111,15 @@ def contact(request):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[settings.DEFAULT_FROM_EMAIL]
             )
+
             messages.success(
-                request, f'Success! Your message was sent successfully and we will be in touch as soon as we can.')
-            return render(request, template)
+                request, f'Success! Message sent successfully, We will be in touch as soon as possible.')
+            return redirect(reverse('home'))
         else:
-            form = SupportForm()
-            messages.error(
-                request, f'Oops, somethings gone wrong. Please try again later.')
-            return render(request, template)
+            messages.error(request, f'Oops, something went wrong. Please try again later. \
+                           If the problem persists, please email directly.')
+    else:
+        form = SupportForm()
 
     context = {
         'form': form,
