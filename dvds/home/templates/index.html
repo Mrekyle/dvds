@@ -2,14 +2,24 @@
 {% load static %}
 
 {% block content %}
-<div class="container pt-4">
+<div class="container index-container pt-4 mt-4">
     <div class="row">
-        <div class="home-slider col-6">
-            Slider 
-        </div>
-        <div class="txt-container col-5">
-            <div class="home-txt col-md-12 offset-md-2 align-self-start">
-                <p>Dedham Vale Driving School was established in 1988. Our 
+        <div class="home-slider col-12">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="..." class="d-block w-100" alt="Image 1">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="Image 2">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="Image 3">
+                  </div>
+                </div>
+            </div>
+            <div class="home-txt col-md-12 offset-md-1 align-self-start">
+                <p class="intro-txt">Dedham Vale Driving School was established in 1988. Our 
                     driving school offers a full range of driving lessons 
                     in Colchester, Clacton, Ipswich and the surrounding 
                     villages. Our driving instructors offer weekly driving 
@@ -24,20 +34,34 @@
                     Our driving school has also been rated in the top three 
                     driving schools in Colchester since 2016!</p>
             </div>
-            <div class="award-container col-md-12 offset-md-2 align-self-end mt-4">Awards section/slider</div>
         </div>
-    </div>
-    <div class="mt-5 row testimonial-container">
-        <div class="col-6">
-            <div class="row">
-                <div class="col-3 me-2 justify-content-start review-img">IMAGE</div>
-                <div class="col-7 justify-content-end review-txt">TEXT</div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="row justify-content-end me-3">
-                <div class="col-7 justify-content-end review-txt">TEXT</div>
-                <div class="col-3 ms-2 justify-content-start review-img">IMAGE</div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="awards-slider">
+                    <div class="slide-track">
+                        <div class="slide-img">
+                            <img src="{% static 'media/blackwells.png' %}" height="100" width="250" alt="Blackwells Butchers">
+                        </div>
+                        <div class="slide-img">
+                            <img src="{% static 'media/coxsfarmshop.png' %}" height="100" width="250" alt="Cox's Farm Shop">
+                        </div>
+                        <div class="slide-img">
+                            <img src="{% static 'media/essexbakery.png' %}" height="100" width="250" alt="Essex Bakery">
+                        </div>
+                        <div class="slide-img">
+                            <img src="{% static 'media/meatlessfarm.png' %}" height="100" width="250" alt="Meatless Farms">
+                        </div>
+                        <div class="slide-img">
+                            <img src="{% static 'media/olivers.png' %}" height="100" width="250" alt="Oliver's Farm Shop">
+                        </div>
+                        <div class="slide-img">
+                            <img src="{% static 'media/sandysfish.png' %}" height="100" width="250" alt="Sandy Fish Fish Mongers">
+                        </div>
+                        <div class="slide-img">
+                            <img src="{% static 'media/stonefield.png' %}" height="100" width="250" alt="Stone Fields Fruit and Veg">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 /* IMPORTS  */
 
 
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* CORE CSS  */
 
@@ -13,9 +14,10 @@ body {
     padding: 0 auto;
     margin: 0 auto;
     height: calc(100vh - 90px);
-    font-size: 16px;
+    font-size: 18px;
     box-sizing: border-box;
     background-color: #f7f7f7;;
+    font-family: 'Sans', 'Times New Roman', Times, serif;
 }
 
 /* HELPER CLASSES  */
@@ -105,7 +107,7 @@ body {
 .footer-container{
     margin-top: 6rem;
     background-color: rgb(123, 74, 74);
-    height: 16.4rem;
+    height: 18rem;
 }
 
 .footer-block{
@@ -139,6 +141,10 @@ body {
 
 /* HOME PAGE  */
 
+.index-container {
+    height: 36rem;
+}
+
 .home-slider {
     height: 25rem;
     background-color: aqua;
@@ -149,8 +155,17 @@ body {
 }
 
 .home-txt {
-    height: 13rem;
-    background-color: blueviolet;
+    margin-top: 16rem;
+    height: 10rem;
+    padding-left: 30rem;
+    margin-right: 1rem;
+    max-width: 93%;
+}
+
+.intro-txt {
+    padding: 10px;
+    border: 5px solid black;
+    border-radius: 25px 4px 25px 4px;
 }
 
 .award-container {
@@ -158,19 +173,66 @@ body {
     height: 10.6rem;
 }
 
-.testimonial-container {
-    height: 13rem;
-    min-width: 100%;
+.navbar {
+    background-color: #a4aab4;
+    color: black;
 }
 
-.review-img {
-    background-color: aquamarine;
-    height: 13rem;
+.nav-link {
+    color: black;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    transition: all .5s;
 }
 
-.review-txt {
-    background-color: orange;
-    height: 13rem;
+.nav-link:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    height: 8px;
+    width: 8px;
+    border: 3px solid dodgerblue;
+    border-width: 0 0 3px 3px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    height: 12px;
+    width: 12px;
+    border: 3px solid dodgerblue;
+    border-width: 0 0 3px 3px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.nav-link:hover::before {
+    opacity: 1;
+    bottom: -8px;
+    left: -8px;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+    bottom: -8px;
+    left: -8px;
+}
+
+.portal-login {
+    text-decoration: none;
+    color: black;
 }
 
 /* CONTACT PAGE  */
@@ -218,6 +280,57 @@ body {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+/* AWARDS SLIDER  */
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+   }
+    100% {
+        transform: translateX(calc(-250px * 7));
+   }
+}
+
+.awards-slider {
+    height: 180px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 95%;
+}
+.awards-slider::before, .awards-slider::after {
+    background: linear-gradient(to right, rgba(300, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+.awards-slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+.awards-slider::before {
+    left: 0;
+    top: 0;
+}
+.awards-slider .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+}
+.awards-slider .slide-img {
+    height: 80px;
+    width: 200px;
+}
+
+.slide-img {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 
 /* TOASTS */
 
