@@ -16,7 +16,7 @@ body {
     height: calc(100vh - 90px);
     font-size: 18px;
     box-sizing: border-box;
-    background-color: #f7f7f7;;
+    background-color: #ffffff;;
     font-family: 'Sans', 'Times New Roman', Times, serif;
 }
 
@@ -25,6 +25,9 @@ body {
 .social-icon {
     font-size: 2rem;
     color: rgb(0, 0, 0);
+    border: 3px solid black;
+    padding: 7px;
+    border-radius: 25%;
 }
 
 .social-icon:hover{
@@ -148,6 +151,7 @@ body {
 .home-slider {
     height: 25rem;
     background-color: aqua;
+    border-radius: 25px 4px 25px 4px;
 }
 
 .txt-container {
@@ -155,10 +159,10 @@ body {
 }
 
 .home-txt {
-    margin-top: 16rem;
+    margin-top: 13rem;
     height: 10rem;
     padding-left: 30rem;
-    margin-right: 1rem;
+    margin-right: 1.1rem;
     max-width: 93%;
 }
 
@@ -190,6 +194,14 @@ body {
 .nav-link:hover {
     background-color: dodgerblue;
     color: white;
+}
+
+.dropdown-item {
+    font-size: 16px;
+}
+
+.dropdown-item:hover {
+    background-color: dodgerblue;
 }
 
 .nav-link::before {
@@ -279,6 +291,29 @@ body {
     background-color: white;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+/* WEEKLY PAGE */
+
+.weekly-card {
+    border: 3px solid black;
+    border-radius: 25px 4px 25px 4px;
+    padding: 20px;
+}
+
+.weekly-header {
+    font-size: 28px;
+    font-weight: bolder;
+    color: #07456f;
+}
+
+.weekly-text {
+    text-wrap: balance;
+}
+
+.location-header {
+    font-weight: bolder;
+    font-size: 21px;
 }
 
 /* AWARDS SLIDER  */
