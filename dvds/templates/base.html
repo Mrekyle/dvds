@@ -43,6 +43,71 @@
 </head>
 <body>  
     <header>
+        {% if from_admin %}
+        <div class="container-fluid">
+          <div class="row flex-nowrap">
+              <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary-subtle">
+                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                          <li class="nav-item">
+                              <a href="{% url 'home' %}" class="nav-link align-middle px-0">
+                                  <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Live Site</span>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{% url 'admin' %}" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                            </a>
+                        </li>
+                          <li>
+                              <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                  <i class="fs-4 bi-person-fill"></i> <span class="ms-1 d-none d-sm-inline">Driver Management</span> </a>
+                              <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                  <li class="w-100">
+                                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Students</span></a>
+                                  </li>
+                                  <li>
+                                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Instructor</span></a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <a href="{% url 'lesson_pricing' %}" class="nav-link px-0 align-middle">
+                                  <i class="fs-4 bi-currency-pound"></i> <span class="ms-1 d-none d-sm-inline">Lesson Pricing</span></a>
+                          </li>
+                          <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                              <i class="fs-4 bi-envelope-fill"></i> <span class="ms-1 d-none d-sm-inline">Contact Requests</span></a>
+                          </li>
+                      </ul>
+                      <hr>
+                      <div class="dropdown pb-4">
+                          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                              <span class="d-none d-sm-inline mx-1 text-black">{{ user }}</span>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                              <li><a class="dropdown-item" href="#">Account Settings</a></li>
+                              <li>
+                                  <hr class="dropdown-divider">
+                              </li>
+                              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a></li>
+                          </ul>
+                      </div>
+                      <div class="pb-1">
+                          <div class="col-12">
+                              <p class="text-muted small">&copy; <script>document.write(new Date().getFullYear())</script> Dedham Vale Driving School</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col py-3">
+                  {% block admin %}
+
+                  {% endblock %}
+              </div>
+          </div>
+      </div>
+        {% else %}
           <nav class="navbar navbar-expand-lg pt-3">
             <div class="container-fluid">
               <a class="navbar-brand ps-3" href="{% url 'home' %}">LOGO HERE</a>
@@ -56,12 +121,12 @@
                       Services <i class="fas fa-angles-down"></i>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{% url 'weekly' %}">Weekly Lessons</a></li>
-                      <li><a class="dropdown-item" href="{% url 'auto' %}">Automatic Lessons</a></li>
-                      <li><a class="dropdown-item" href="{% url 'intensive' %}">Intensive Lessons</a></li>
-                      <li><a class="dropdown-item" href="{% url 'refresher' %}">Refresher Lessons</a></li>
-                      <li><a class="dropdown-item" href="{% url 'instructor' %}">Instructor Training</a></li>
-                      <li><a class="dropdown-item" href="{% url 'theory_test' %}">Theory Test</a></li>
+                      <li><a class="dropdown-item text-center" href="{% url 'weekly' %}">Weekly Lessons</a></li>
+                      <li><a class="dropdown-item text-center" href="{% url 'auto' %}">Automatic Lessons</a></li>
+                      <li><a class="dropdown-item text-center" href="{% url 'intensive' %}">Intensive Lessons</a></li>
+                      <li><a class="dropdown-item text-center" href="{% url 'refresher' %}">Refresher Lessons</a></li>
+                      <li><a class="dropdown-item text-center" href="{% url 'instructor' %}">Instructor Training</a></li>
+                      <li><a class="dropdown-item text-center" href="{% url 'theory_test' %}">Theory Test</a></li>
                     </ul>
                   </li>
                   <li class="nav-item ms-4">
@@ -74,10 +139,32 @@
                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                   </li>
                 </ul>
-                <a href="{% url 'drivers' %}" class="me-3 portal-login" rel="opener" aria-label="Allows instructors and students to sign in to the portal"><i class="fas fa-user pe-2"></i> Login</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 ps-5">
+                  <li class="nav-item dropdown-toggle">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-user pe-2"></i> {% if request.user.is_authenticated %} Portal {% else %} Login {% endif %}
+                    </a>
+                    <ul class="dropdown-menu">
+                      {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                          <li><a class="dropdown-item" href="{% url 'admin' %}">Admin Portal</a></li>
+                        {% endif %}
+                        {% if request.user.is_staff %}
+                          <li><a class="dropdown-item" href="#">Instructor Portal</a></li>
+                        {% endif %}
+                        {% if request.user.is_authenticated %}
+                          <li><a class="dropdown-item" href="{% url 'student' %}">Student Portal</a></li>
+                          <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                        {% endif %}
+                      {% else %}
+                        <li><a class="dropdown-item text-center" href=" {% url 'account_login' %}">Login</a></li>
+                      {% endif %}
+                    </ul>
+                </ul>
               </div>
             </div>
           </nav>
+        {% endif %}
           <!-- INCLUDE HERE -->
         </header>
 
@@ -103,62 +190,70 @@
       {% block content %}
 
       {% endblock %}
+
+      {% block all_auth %}
+
+      {% endblock %}
     </main>
 
-    <div class="footer-container">
-      <footer class="footer-block">
-          <div class="col-lg-12 pt-4">
-              <div class="row text-center">
-                  <div class="col-lg-4">
-                    <div class="">
-                      <p class=""><i class="bi bi-circle-fill"></i> Usefull Links <i class="bi bi-circle-fill"></i></p>
-                      <div class="row">
-                        <div class="col-5">
-                          <ul class="usefull-links">
-                            <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens DVLA Provisional application">Get Your License</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens DVLA Theory Test booking">Book Your Theory</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens DVLA driving Test Booking">Book Your Test</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens Theory Test Pro">Theory Test Pro</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens DVSA Youtube Channel">DVSA Youtube</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-6">
-                          <ul class="usefull-links">
-                            <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens our lesson pricing">Lesson Pricing</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Meet our team">Meet The Team</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens the what we offer page">What We Offer</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens the student portal">Driver Portal</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens the Privacy Policy">Privacy Policy</a></li>
-                            <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens the Terms and conditions">Terms & Conditions</a></li>
-                          </ul>
+    {% if from_admin %}
+    
+    {% else %}
+      <div class="footer-container">
+        <footer class="footer-block">
+            <div class="col-lg-12 pt-4">
+                <div class="row text-center">
+                    <div class="col-lg-4">
+                      <div class="">
+                        <p class=""><i class="bi bi-circle-fill"></i> Usefull Links <i class="bi bi-circle-fill"></i></p>
+                        <div class="row">
+                          <div class="col-5">
+                            <ul class="usefull-links">
+                              <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens DVLA Provisional application">Get Your License</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens DVLA Theory Test booking">Book Your Theory</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens DVLA driving Test Booking">Book Your Test</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens Theory Test Pro">Theory Test Pro</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" target="_blank" aria-label="Opens DVSA Youtube Channel">DVSA Youtube</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-6">
+                            <ul class="usefull-links">
+                              <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens our lesson pricing">Lesson Pricing</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Meet our team">Meet The Team</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens the what we offer page">What We Offer</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens the student portal">Driver Portal</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens the Privacy Policy">Privacy Policy</a></li>
+                              <li><a class="f-link usefull-txt" href="" rel="opener" aria-label="Opens the Terms and conditions">Terms & Conditions</a></li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <p class=""><i class="bi bi-circle-fill"></i> Get In Touch <i class="bi bi-circle-fill"></i></p>
-                    <div class="pt-4">
-                      <a class="btn btn-standard rounded" href="{% url 'contact' %}" aria-label="" rel="opener"><i class="bi bi-envelope"></i> Contact</a>
+                    <div class="col-lg-4">
+                      <p class=""><i class="bi bi-circle-fill"></i> Get In Touch <i class="bi bi-circle-fill"></i></p>
+                      <div class="pt-4">
+                        <a class="btn btn-standard rounded" href="{% url 'contact' %}" aria-label="" rel="opener"><i class="bi bi-envelope"></i> Contact</a>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <p class="social-txt"><i class="bi bi-circle-fill"></i> Find Us On <i class="bi bi-circle-fill"></i></p>
-                    <div class="pt-4">
-                      <a href="" class="" rel="opener" aria-label="Opens Our Facebook"><i class="social-icon ms-2 me-2 bi bi-facebook"></i></a>
-                      <a href="" class="" rel="opener" aria-label="Opens Our Twitter"><i class="social-icon ms-2 me-2 bi bi-twitter"></i></a>
-                      <a href="" class="" rel="opener" aria-label="Opens Our Instagram"><i class="social-icon ms-2 me-2 bi bi-instagram"></i></a>
-                      <a href="" class="" rel="opener" aria-label="Opens Our Youtube"><i class="social-icon ms-2 me-2 bi bi-youtube"></i></a>
+                    <div class="col-lg-4">
+                      <p class="social-txt"><i class="bi bi-circle-fill"></i> Find Us On <i class="bi bi-circle-fill"></i></p>
+                      <div class="pt-4">
+                        <a href="" class="" rel="opener" aria-label="Opens Our Facebook"><i class="social-icon ms-2 me-2 bi bi-facebook"></i></a>
+                        <a href="" class="" rel="opener" aria-label="Opens Our Twitter"><i class="social-icon ms-2 me-2 bi bi-twitter"></i></a>
+                        <a href="" class="" rel="opener" aria-label="Opens Our Instagram"><i class="social-icon ms-2 me-2 bi bi-instagram"></i></a>
+                        <a href="" class="" rel="opener" aria-label="Opens Our Youtube"><i class="social-icon ms-2 me-2 bi bi-youtube"></i></a>
+                      </div>
                     </div>
-                  </div>
-              </div>
-          </div>
-          <div class="copy-container">
-            <div class="col-12">
-                <p class="text-end pe-3">&copy; <script>document.write(new Date().getFullYear())</script> Dedham Vale Driving School | <a target="_blank" aria-label="Opens up Kyle Charts github" href="https://www.github.com/mrekyle" class="f-link"> Designed and Managed By Kyle Chart</a></p>
+                </div>
             </div>
-          </div>
-      </footer>
-    </div>
+            <div class="copy-container">
+              <div class="col-12">
+                  <p class="text-end pe-3">&copy; <script>document.write(new Date().getFullYear())</script> Dedham Vale Driving School | <a target="_blank" aria-label="Opens up Kyle Charts github" href="https://www.github.com/mrekyle" class="f-link"> Designed and Managed By Kyle Chart</a></p>
+              </div>
+            </div>
+        </footer>
+      </div>
+    {% endif %}
 
     {% block postload_js %}
     <script>

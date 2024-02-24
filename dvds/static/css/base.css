@@ -247,6 +247,14 @@ body {
     color: black;
 }
 
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: auto;
+}
+
 /* CONTACT PAGE  */
 
 .contact-img {
@@ -314,6 +322,12 @@ body {
 .location-header {
     font-weight: bolder;
     font-size: 21px;
+}
+
+/* ADMIN PORTAL  */
+
+.nav-container {
+    background: whitesmoke;
 }
 
 /* AWARDS SLIDER  */

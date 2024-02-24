@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}
+
+{% endblock %}
+
+{% block admin %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p>Manual Lesson Pricing</p>
+                <div class="row">
+                    <div class="col-12">
+                        <table>
+                            <tr>
+                                <th>Lesson Type</th>
+                                <th>Current Price</th>
+                                <th>New Price</th>
+                            </tr>
+                            <tr>
+                                <td>Hourly</td>
+                                <td>{{ pricing.manual_hourly }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ten Hour Block</td>
+                                <td>{{ pricing.manual_block }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Refresher</td>
+                                <td>{{ pricing.manual_refresher }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <p>Automatic Lesson Pricing</p>
+                <div class="row">
+                    <div class="col-12">
+                        <table>
+                            <tr>
+                                <th>Lesson Type</th>
+                                <th>Current Price</th>
+                                <th>New Price</th>
+                            </tr>
+                            <tr>
+                                <td>Hourly</td>
+                                <td>{{ pricing.automatic_hourly }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ten Hour Block</td>
+                                <td>{{ pricing.automatic_block }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Refresher</td>
+                                <td>{{ pricing.automatic_refresher }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p>Intensive Lesson Pricing</p>
+                <div class="row">
+                    <div class="col-12">
+                        <table>
+                            <tr>
+                                <th>Lesson Type</th>
+                                <th>Current Price</th>
+                                <th>New Price</th>
+                            </tr>
+                            <tr>
+                                <td>Ten Hours</td>
+                                <td>{{ pricing.intensive_ten }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fifteen Hours</td>
+                                <td>{{ pricing.intensive_fifteen }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Twenty Hours</td>
+                                <td>{{ pricing.intensive_twenty }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Twentyfive Hours</td>
+                                <td>{{ pricing.intensive_twentyfive }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Thirty Hours</td>
+                                <td>{{ pricing.intensive_thirty }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Thirtyfive Hours</td>
+                                <td>{{ pricing.intensive_thirtyfive }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fourty Hours</td>
+                                <td>{{ pricing.intensive_fourty }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Fourtyfive Hours</td>
+                                <td>{{ pricing.intensive_fourtyfive }}</td>
+                                <td>
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="text">
+                                        <button class="btn btn-base" type="submit">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-6">
+                <p>Refresher Lesson Pricing</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
