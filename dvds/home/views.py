@@ -45,8 +45,8 @@ def contact(request):
             email = request.POST.get('email')
             number = request.POST.get('number')
             location = request.POST.get('location')
-            gearbox = request.POST.get('gearbox')
-            information = request.POST.get('information')
+            gearbox = form.cleaned_data['gearbox']
+            information = form.cleaned_data['information']
             message = request.POST.get('message')
             send_copy = request.POST.get('send-copy')
             subject = 'New contact form request'
