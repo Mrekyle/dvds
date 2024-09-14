@@ -25,7 +25,7 @@
     @vite('resources/js/app.js')
 </head>
 
-<body>
+<body class="bg-slate-700">
     @include('layout.header')
 
     <main>

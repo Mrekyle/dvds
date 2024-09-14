@@ -1,3 +1,5 @@
 <header>
-    @yield('navbar')
+    <div>
+        @include('layout.navbar')
+    </div>
 </header>
