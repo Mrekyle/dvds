@@ -1,0 +1,3 @@
+<header>
+    @yield('navbar')
+</header>
