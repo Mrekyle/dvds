@@ -12,6 +12,6 @@ class Instructors extends Controller
             ->title("DVD's: Meet the Instructors")
             ->description("Meet the Dedham Vale Driving School Instructors");
 
-        return view('pages.instructors');
+        return view('pages.instructor');
     }
 }
